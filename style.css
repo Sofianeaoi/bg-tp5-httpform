@@ -1,0 +1,477 @@
+/* Google Font */
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(180deg, #0a1f33, #0c2b4a);
+}
+
+/* Wrapper général */
+.page-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Carte blanche centrale */
+.sheet {
+    background: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 12px;
+    padding-bottom: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+}
+
+/* Header */
+.hero {
+    background: #ff4d6d;
+    padding: 30px;
+    border-radius: 12px 12px 0 0;
+    color: white;
+    text-align: center;
+}
+/* Arrière-plan icône cinéma (watermark) */
+.hero {
+    position: relative;
+    overflow: hidden; /* empêche l'icône de déborder */
+}
+
+.hero::after {
+    content: "🎬"; /* icône du clap */
+    position: absolute;
+    right: -40px;     /* position à droite */
+    top: -50px;       /* position en haut */
+    font-size: 170px; /* taille géante */
+    opacity: 0.5;    /* transparence comme la capture */
+    color: #000;      /* base */
+    filter: brightness(300%) saturate(10%); /* rend l’emoji rouge pâle */
+    pointer-events: none; /* empêche de cliquer dessus */
+}
+
+.brand-title {
+    font-size: 2rem;
+    margin: 0;
+}
+.brand-sub {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+/* Section card */
+.card.section {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border-left: 4px solid #ff4d6d; /* bande rouge à gauche uniquement */
+}
+
+.notice {
+    margin: 20px 30px 0;
+    background: #FFF8D6;
+    border-radius: 8px;
+    padding: 12px 16px;
+    border-left: 4px solid #F2C94C;
+    border-top: 2px solid #F6E7B5;
+    border-right: 2px solid #F6E7B5;
+    border-bottom: 2px solid #F6E7B5;
+}
+
+.notice-text {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #7A5A00;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+/* Title with icon */
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.section-title .icon {
+    font-size: 1.4rem;
+}
+
+/* Forms */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+input, select {
+    padding: 10px 12px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+/* Hover / Focus identical to screenshot */
+input:focus, select:focus {
+    border-color: #ff4d6d;
+    outline: none;
+    box-shadow: 0 0 4px rgba(255, 77, 109, 0.4);
+}
+/* Sous-titre "Choisissez votre formule :" */
+.sub-title {
+    font-weight: 800;
+    color: #d93b55;
+    display: inline-block;
+    padding: 0 8px;
+    background: #ffffff;     /* masque la bordure derrière la phrase */
+    position: relative;
+    top: 12px;               /* fait descendre légèrement pour s'insérer dans la bordure */
+    left: 12px;              /* décale vers la droite comme ta capture */
+    z-index: 2;
+}
+
+
+
+/* Trait de séparation gris clair */
+.sub-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e3e3e3; /* couleur du trait gris dans la capture */
+    margin-top: 4px;
+}
+
+
+/* Boîte grise contenant les 3 formules */
+.plan-box {
+    border: 2px solid #e2e2e2;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 25px 20px 18px;
+    margin-top: -5px;     /* fait remonter le cadre sous la phrase */
+    position: relative;
+}
+
+/* Chaque ligne de formule */
+.plan-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Conteneur radio custom */
+.radio-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* On cache le vrai input radio */
+.radio-wrap input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+
+/* Cercle radio custom blanc + bord gris */
+.radio-visual {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #cfcfcf;
+    background: #ffffff;
+    box-shadow: inset 0 0 0 4px #ffffff;
+    transition: all 0.15s ease;
+}
+
+/* Quand la formule est sélectionnée : cercle rose */
+.radio-wrap input[type="radio"]:checked + .radio-visual {
+    border-color: #ff4d6d;
+    background: #ff4d6d;
+    box-shadow: inset 0 0 0 4px #ffffff;
+}
+
+/* Médailles 🥉 🥈 🥇 */
+.plan-medal {
+    font-size: 1.1rem;
+}
+
+/* Texte des formules */
+.plan-text {
+    font-size: 0.95rem;
+}
+/* Titre "Genres de films préférés :" intégré à la bordure */
+.genre-title {
+    font-weight: 800;
+    color: #d93b55;
+    display: inline-block;
+    background: white;
+    padding: 0 8px;
+    position: relative;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+}
+
+/* Boîte blanche autour des genres */
+.genre-box {
+    border: 2px solid #e2e2e2;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 25px 20px;
+    margin-top: -5px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Une ligne = checkbox + emoji + texte */
+/* Une ligne = carte blanche arrondie avec une bordure fine */
+.genre-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    padding: 12px 14px;
+
+    background: #ffffff;           /* fond blanc pur */
+    border: 2px solid #ffffff;     /* bordure blanche (invisible) */
+    border-radius: 10px;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);  /* petite ombre douce */
+}
+
+
+
+/* Cases carrées */
+.genre-row input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    accent-color: #ff4d6d;  /* couleur rose quand cochée */
+}
+
+/* Emoji du genre */
+.genre-icon {
+    font-size: 1.1rem;
+}
+
+/* Texte */
+.genre-text {
+    font-size: 0.95rem;
+}
+/* SELECT MULTIPLE — EXACTEMENT COMME LA CAPTURE */
+.lang-select {
+    width: 100%;
+    color: #000;                 /* noir pur → correspond à ta capture */
+    font-size: 0.95rem;
+    padding: 8px;
+    border: 1px solid #cfcfcf;   /* bordure grise fine */
+    border-radius: 8px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+/* INPUTS DE CETTE SECTION (réalisateur + blog) */
+.cine-input {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 10px 12px;
+    border: 1px solid #cfcfcf;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #000;                /* texte noir */
+    box-sizing: border-box;
+}
+
+/* SURVOL ET FOCUS (même style que tes autres inputs) */
+.cine-input:focus,
+.lang-select:focus {
+    border-color: #ff4d6d;
+    outline: none;
+    box-shadow: 0 0 4px rgba(255, 77, 109, 0.4);
+}
+/* FORMAT DES SELECT MULTIPLES */
+.lang-select {
+    width: 100%;
+    color: #000;             
+    font-size: 0.95rem;
+    padding: 8px;
+    border: 1px solid #cfcfcf;
+    border-radius: 8px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+/* TEXT INPUTS DU REALISATEUR & BLOG */
+.cine-input {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 10px 12px;
+    border: 1px solid #cfcfcf;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #000;
+    box-sizing: border-box;
+}
+
+/* FOCUS UNIFIÉ */
+.cine-input:focus,
+.lang-select:focus {
+    border-color: #ff4d6d;
+    outline: none;
+    box-shadow: 0 0 4px rgba(255, 77, 109, 0.4);
+}
+/* Bordures plus grasses pour les inputs */
+.cine-input {
+    border: 2px solid #cfcfcf; 
+}
+
+/* Bordure plus grasse du select multiple */
+.lang-select {
+    border: 2px solid #cfcfcf;
+}
+
+/* Bordure du color picker */
+.color-picker {
+    width: 70px;
+    height: 45px;
+    border: 2px solid #cfcfcf;
+    border-radius: 8px;
+    background: white;
+    padding: 0;
+}
+
+
+.freq-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.freq-range {
+    flex: 1;               /* occupe tout l’espace */
+    height: 6px;           /* plus épais comme la capture */
+    accent-color: #ff4d6d; /* rouge */
+}
+
+/* Bulle rouge dynamique */
+.freq-value {
+    background: #ff4d6d;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Texte "fois/mois" */
+.freq-units {
+    color: #444;
+}
+/* Tous les labels en gris foncé */
+.card.section label {
+    color: #333;
+    font-weight: 600;
+}
+
+
+.file-drop {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 2px dashed #d6d6d6;
+    border-radius: 10px;
+    background: #fafafa;
+    width: 350px;  /* largeur exacte comme la maquette */
+    box-sizing: border-box;
+}
+
+/* Input file natif mais SANS bordure */
+.file-drop input[type="file"] {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 0.9rem;
+    padding: 0;
+}
+.form-group textarea {
+    padding: 12px 14px;
+    resize: vertical;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box; /* évite de dépasser */
+}
+
+
+/* Belles textarea */
+.cine-textarea {
+    width: 100%;
+    min-height: 130px;
+    border: 2px solid #cfcfcf;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 0.95rem;
+    color: #333;
+    background: #fff;
+    resize: vertical;
+}
+
+/* Petit texte gris clair */
+.info-small {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 6px;
+}
+.submit-container {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+#submitBtn {
+    background: linear-gradient(90deg, #ff5a7a, #d61b3c);
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 14px 40px;
+    border-radius: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 20px rgba(255, 77, 109, 0.4);
+    transition: 0.2s ease-in-out;
+}
+
+/* Effet hover */
+#submitBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 26px rgba(255, 77, 109, 0.55);
+}
+
+/* Effet disabled */
+#submitBtn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
